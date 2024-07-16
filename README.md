@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/4bedf364-f3af-44bf-9bea-830ec28de867)![image](https://github.com/user-attachments/assets/64643e5e-7ba5-411f-b91f-b218f7918971)# MI_macrophage
+# MI_macrophage
 ## Macrophages in cardiac repair and regeneration after myocardial infarction
 
   1. Single cell sequencing data analysis:  
