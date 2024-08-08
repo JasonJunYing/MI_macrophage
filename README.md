@@ -13,11 +13,23 @@
   (2) PCA calculation  
   (3) Harmony integration (top 50 PCA)  
   (4) UMAP calculation  
-  (5) Cell type definition
+  (5) Cell type definition  
 
   2. Macrophage subset analysis:  
      Mice myeloid cells (macrophages, monocytes and dendritic cells) were defined by well-known markers (Plac8, Saa3, Arg1, C1qa, Cd68, Itgam, Cd74). The UMAP of the extracted myeloid was recalculated and subjected to leiden clustering. The clusters were further annotated according to gene expression. 12 macrophage clusters were named after their main marker genes. Cells from adult mice were extracted for downstream analysis [(Macrophages_mice.ipynb)](./annotation/Macrophages_mice.ipynb).
        
      For zebrafish the cell types were defined according to the annotation from Hu et al (GSE159032). Each non-Hu cell was assigned to the 15 closest neighbouring cells from the Hu data based on Euclidean distance calculated using the top 50 principle components and the cell type was assigned based on the most frequently occurring type. Wild-type zebrafish macrophages without DMSO/IWR/morphine treatment were extracted and annotated by scoring of the top 100 differentially expressed marker genes in mice macrophage subsets [(TransedMouse100Marker_Outer.csv)](./Files/TransedMouse100Marker_Outer.csv). Cells with scores > 0.05 were used for downstream analysis [(Macrophages_zebrafish.ipynb)](./annotation/Macrophages_zebrafish.ipynb).  
-     
+
+     After these, multiple gene expression patterns in both species were analysed and compared [(MI_plottings.ipynb)](./MI_plottings.ipynb).  
+
+  3. Pathway analysis:  
+     To compare the biological changes after cardiac injury between mice and zebrafish, we used the biological process subsets of the mice Gene Ontology datasets [(M5, GOBP)](https://www.gsea-msigdb.org/gsea/msigdb/mouse/genesets.jsp?collection=GO:BP) to conduct pathway analysis. For zebrafish, the gene symbols in the datasets were converted to homologous zebrafish genes using [biomaRt](./pathway/biomaRt.R). Pathway analysis were conducted as [(Pathways.R)](./pathway/Pathways.R):  
+  (1) Mean expression calculation (each pathway for both species)  
+  (2) Filtering out lowly expressed pathways  
+  (3) Interactive model fitting: [y = mean expression; x = days after injury(smoothen by natural-spline(ns) model)*species]  
+  (4) Differential analysis (ANOVA)  
+
+
+
+      
      
