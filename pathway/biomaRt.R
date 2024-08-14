@@ -20,7 +20,7 @@ for(l in 1:ncol(data_source)){
               filters = "external_gene_name",
               mart = mouse,
               attributesL = "external_gene_name",
-              values = 'S100a4',
+              values = data_source[,i],
               martL = fish,
               uniqueRows = T)
   res<-res[!duplicated(res$Gene.name.1),]
